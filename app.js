@@ -8,6 +8,9 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 // var fotosRouter = require('./routes/fotos');
 var fotosRouter = require('./routes/fotos');
+// Importa el controlador de rutas
+const fotosRouterRest = require('./routes/rest/fotos');  
+
 
 var app = express();
 
@@ -24,6 +27,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/fotos', fotosRouter);
+// Usa el router en la ruta /rest/fotos
+app.use('/rest/fotos', fotosRouterRest);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

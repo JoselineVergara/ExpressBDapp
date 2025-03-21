@@ -61,7 +61,11 @@ router.get('/findAll/view', function (req, res, next) {
         }],
     })
         .then(fotos => {
-            res.render('fotos', { title: 'Fotos', arrFotos: fotos });
+            res.render('index', {
+                title: 'Fotos',
+                view: 'fotos',
+                arrFotos: fotos
+            });
         })
         .catch(error => res.status(400).send(error))
 });
@@ -87,7 +91,7 @@ router.get('/findAllByRate/view', function (req, res, next) {
         }
     })
         .then(fotos => {
-            res.render('fotoRango', { title: 'Fotos por Rango', arrFotos: fotos });
+            res.render('index', { title: 'Fotos por Rango',view: 'fotoRango', arrFotos: fotos });
         })
         .catch(error => res.status(400).send(error))
 });
